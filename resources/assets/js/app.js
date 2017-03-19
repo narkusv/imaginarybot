@@ -18,6 +18,7 @@ Vue.component('item', require('./components/Panel.vue'));
 
 //Converts JSON array from database (no children, just parent ID) to a tree.
 function unflatten(arr) {
+	console.log("Unflatten ccalled");
   var tree = [],
       mappedArr = {},
       arrElem,
@@ -29,26 +30,29 @@ function unflatten(arr) {
     mappedArr[arrElem.id] = arrElem;
     mappedArr[arrElem.id]['children'] = [];
   }
-
+	
+	 console.log(mappedArr);
 
   for (var id in mappedArr) {
+	
     if (mappedArr.hasOwnProperty(id)) {
       mappedElem = mappedArr[id];
       // If the element is not at the root level, add it to its parent array of children.
       if (mappedElem['parent_id'] && mappedArr[mappedElem['parent_id']]) {
-    
         mappedArr[mappedElem['parent_id']]['children'].push(mappedElem);
       }
       // If the element is at the root level, add it to first level elements array.
       else {
       	// insert only if parent = 0, so elements with deleted parents are not deleted. 
-      	if(mappedElem['parent_id'] === 0){
+      	if(mappedElem['parent_id'] == 0){
       		 tree.push(mappedElem);
       	}
        
       }
     }
   }
+  
+  console.log(tree);
   return tree;
 } 
 
@@ -65,7 +69,6 @@ function insertToMap(item, map){
   
 function searchTreePart(element, idToFind){
 	if(element['id'] == idToFind){
-		console.log(true);
 		return element;
 	}else if (element['children'] != null){
 		var i;
@@ -73,9 +76,7 @@ function searchTreePart(element, idToFind){
 		for(i=0; result == null && i < element['children'].length; i++){
 		   result = searchTreePart(element['children'][i], idToFind);
 		   if(result != null){
-		   		console.log("splicing item from children" + JSON.stringify(element));
 		   		element['children'].splice(i, 1);
-		   		console.log("splicing item from children" + JSON.stringify(element));
 		   		result = null;
 		   }
 		}
@@ -109,7 +110,7 @@ function isURL(url){
 }
 
 function passDataToServer(comment, parent, type, model){
-	console.log(Echo.socketId());
+	
 	axios.post('/comments', { content : comment, parent_id : parent, type : type})
 	.then(function(response){    
 	      //Asuming that inserting to highest level element (model argument is empty.)
@@ -171,7 +172,7 @@ var commentHandler = new window.Vue({
 
 function InsertSearchInTree(element, comment){
 	if(element['id'] == comment.parent_id){
-		console.log(true);
+	
 		return element;
 	}else if (element['children'] != null){
 		var i;
@@ -183,7 +184,7 @@ function InsertSearchInTree(element, comment){
 		   			element['children'][i]['children'] = [];
 		   		}
 		   		element['children'][i]['children'].push(comment);
-		   		console.log("splicing item from children" + JSON.stringify(element));
+		   
 		   		result = null;
 		   }
 		}
@@ -216,6 +217,7 @@ Echo.channel('tester').listen('NewCommentEvent', (data) => {
 	}
     });
 });
+
 
  // GET /someUrl
 axios.get('/comments')
