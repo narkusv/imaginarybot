@@ -1,0 +1,11 @@
+<template id="things-panel-template">
+<ul class="things-panel">
+   
+    <li>{{ thing.body }}</li>
+      <div class="children" v-if="thing.children">
+        <Panel v-for="childPanel in thing.children"
+            :thing="childPanel"
+        ></Panel>
+    </div>
+</ul>
+</template>
