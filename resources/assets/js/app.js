@@ -60,7 +60,12 @@ function insertToMap(item, map){
   item['children'] = [];
 
     if(item['parent_id'] == map['id']){
-      map.children.push(item);
+    	console.log(map);
+    	if(!map['children']){
+    		map['children'] = [];
+    	}
+
+      map['children'].push(item);
     }else{
       map.push(item);
     }
@@ -195,8 +200,9 @@ function InsertSearchInTree(element, comment){
 
 
 Echo.channel('tester').listen('NewCommentEvent', (data) => {
+	console.log(data);
 	var comment = data.comment;
-	if(comment.parent_id === 0){
+	if(comment.parent_id == 0){
 		commentHandler.treeData.push(comment);
 		return;
 	}
