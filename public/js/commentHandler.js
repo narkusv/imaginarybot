@@ -15968,9 +15968,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
 
 
 exports.default = {
@@ -40858,16 +40855,19 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('div', {
-    class: {
-      bold: _vm.isFolder
-    },
     on: {
       "click": _vm.toggle
     }
   }, [_c('div', {
-    staticClass: "col-md-10 col-xs-10"
+    staticClass: "col-md-10 col-xs-10",
+    staticStyle: {
+      "padding-left": "0px"
+    }
   }, [(_vm.model.type == 0) ? _c('span', [_vm._v("\n        " + _vm._s(_vm.model.content) + "\n      ")]) : _c('img', {
     staticClass: "img-responsive",
+    staticStyle: {
+      "width": "600px"
+    },
     attrs: {
       "src": _vm.model.content,
       "alt": "bot is confused about this image"

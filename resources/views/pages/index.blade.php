@@ -1,12 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    @if (!Auth::guest())
-      <h1> Admin </h1>
-    @endif
-
-
-   	<div style="margin-top: 5%;" class="col-md-8"id="demo">
+<div style="padding-left: 0px" class="container col-md-10">
+  
+   	<div style="margin-top: 20px; padding-left: 0px"  class="col-md-12 col-xs-12" id="demo">
       <ul style="list-style: none; font-size: 20pt;">
       	 <item  v-for="item in treeData"
           @if (Auth::guest())

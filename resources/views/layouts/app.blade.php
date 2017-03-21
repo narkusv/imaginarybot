@@ -13,7 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        div{
+            padding-left: 0 !important ;
+        }
         body{
+
             background-color: #ffffff;
             font-family: "Times New Roman", Georgia, Serif;
         }

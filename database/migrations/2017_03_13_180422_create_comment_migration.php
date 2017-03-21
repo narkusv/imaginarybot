@@ -15,7 +15,7 @@ class CreateCommentMigration extends Migration
      {
          Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('content')->index();
+            $table->string('content');
             $table->integer('type')->default('0');
             $table->integer('creator_id')->unsigned()->default('0');
             $table->integer('parent_id')->index()->default('0');

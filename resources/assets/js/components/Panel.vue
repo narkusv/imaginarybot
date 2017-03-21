@@ -1,16 +1,12 @@
 <template id="item-template">
 <li >
-    <div
+    <div @click="toggle">
 
-      :class="{bold: isFolder}"
-     @click="toggle"
-    >
-
-    <div class="col-md-10 col-xs-10">
+    <div style="padding-left: 0px" class="col-md-10 col-xs-10">
       <span v-if="model.type == 0">
         {{model.content}}
       </span>
-      <img class="img-responsive" v-else :src="model.content" alt="bot is confused about this image"></img>
+      <img style="max-width:600px; height: auto" class="img-responsive" v-else :src="model.content" alt="bot is confused about this image"></img>
      
     </div>
     <div class="col-md-1 col-xs-1">
@@ -34,6 +30,7 @@
   </li>
 
 </template>
+
 
 <script>
 
