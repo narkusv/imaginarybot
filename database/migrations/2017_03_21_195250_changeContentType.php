@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTypeToComments extends Migration
+class ChangeContentType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTypeToComments extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function(Blueprint $table) {
-        });
+         $sql = 'ALTER TABLE `comments` MODIFY COLUMN `content` TEXT';
+        DB::connection()->getPdo()->exec($sql);
     }
 
     /**
@@ -24,8 +24,6 @@ class AddTypeToComments extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function($table) {
-            $table->dropColumn('type');
-        });
+          $sql = 'ALTER TABLE `comments` MODIFY COLUMN `content` VARCHAR(191)';
     }
 }
