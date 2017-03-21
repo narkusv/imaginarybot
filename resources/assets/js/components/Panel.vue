@@ -2,7 +2,7 @@
 <li >
     <div @click="toggle">
 
-    <div style="padding-left: 0px" class="col-md-10 col-xs-10">
+    <div style="padding-left: 0px;" class="col-md-10 col-xs-10">
       <span v-if="model.type == 0">
         {{model.content}}
       </span>
