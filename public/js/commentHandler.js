@@ -15968,6 +15968,9 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
 
 
 exports.default = {
@@ -15987,6 +15990,10 @@ exports.default = {
   },
   mounted: function mounted() {},
   computed: {
+    isRoot: function isRoot() {
+      console.log(this.model.parent_id);
+      return this.model.parent_id == 0 ? "Q:" : "A:";
+    },
     isFolder: function isFolder() {
       return this.model.children && this.model.children.length;
     },
@@ -40829,7 +40836,7 @@ var Component = __webpack_require__(33)(
   /* cssModules */
   null
 )
-Component.options.__file = "/home/vagrant/Code/imaginarybot/resources/assets/js/components/Panel.vue"
+Component.options.__file = "D:\\Code\\imaginarybot\\resources\\assets\\js\\components\\Panel.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Panel.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -40863,10 +40870,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "padding-left": "0px"
     }
-  }, [(_vm.model.type == 0) ? _c('span', [_vm._v("\n        " + _vm._s(_vm.model.content) + "\n      ")]) : _c('img', {
+  }, [(_vm.model.type == 0) ? _c('span', [_vm._v("\n        " + _vm._s(_vm.isRoot) + "\n        " + _vm._s(_vm.model.content) + "\n        \n       \n      ")]) : _c('img', {
     staticClass: "img-responsive",
     staticStyle: {
-      "width": "600px"
+      "max-width": "600px",
+      "height": "auto"
     },
     attrs: {
       "src": _vm.model.content,

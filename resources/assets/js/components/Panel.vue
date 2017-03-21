@@ -4,7 +4,10 @@
 
     <div style="padding-left: 0px;" class="col-md-10 col-xs-10">
       <span v-if="model.type == 0">
+        {{ isRoot }}
         {{model.content}}
+        
+       
       </span>
       <img style="max-width:600px; height: auto" class="img-responsive" v-else :src="model.content" alt="bot is confused about this image"></img>
      
@@ -55,6 +58,10 @@
            
         },
         computed: {
+          isRoot: function(){
+            console.log(this.model.parent_id);
+            return this.model.parent_id == 0 ? "Q:" : "A:";
+          },
           isFolder: function () {
             return this.model.children &&
               this.model.children.length
