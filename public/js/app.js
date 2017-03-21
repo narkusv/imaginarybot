@@ -50495,13 +50495,13 @@ function unflatten(arr) {
 			mappedElem = mappedArr[id];
 			// If the element is not at the root level, add it to its parent array of children.
 			if (mappedElem['parent_id'] && mappedArr[mappedElem['parent_id']]) {
-				mappedArr[mappedElem['parent_id']]['children'].push(mappedElem);
+				mappedArr[mappedElem['parent_id']]['children'].unshift(mappedElem);
 			}
 			// If the element is at the root level, add it to first level elements array.
 			else {
 					// insert only if parent = 0, so elements with deleted parents are not deleted. 
 					if (mappedElem['parent_id'] == 0) {
-						tree.push(mappedElem);
+						tree.unshift(mappedElem);
 					}
 				}
 		}
@@ -50520,9 +50520,9 @@ function insertToMap(item, map) {
 			map['children'] = [];
 		}
 
-		map['children'].push(item);
+		map['children'].unshift(item);
 	} else {
-		map.push(item);
+		map.unshift(item);
 	}
 	return map;
 }
@@ -50643,7 +50643,7 @@ function InsertSearchInTree(element, comment) {
 				if (!element['children'][i]['children']) {
 					element['children'][i]['children'] = [];
 				}
-				element['children'][i]['children'].push(comment);
+				element['children'][i]['children'].unshift(comment);
 
 				result = null;
 			}
@@ -50656,7 +50656,7 @@ Echo.channel('tester').listen('NewCommentEvent', function (data) {
 	console.log(data);
 	var comment = data.comment;
 	if (comment.parent_id == 0) {
-		commentHandler.treeData.push(comment);
+		commentHandler.treeData.unshift(comment);
 		return;
 	}
 
@@ -50666,7 +50666,7 @@ Echo.channel('tester').listen('NewCommentEvent', function (data) {
 			if (!element['children']) {
 				element['children'] = [];
 			}
-			element['children'].push(comment);
+			element['children'].unshift(comment);
 			return false;
 		} else {
 			var result = InsertSearchInTree(element, comment);
