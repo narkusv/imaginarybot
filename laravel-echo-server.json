@@ -1,5 +1,5 @@
 {
-	"authHost": "http://localhost",
+	"authHost": "http://trager.lt",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
@@ -14,7 +14,7 @@
 		}
 	},
 	"devMode": true,
-	"host": "homestead.app",
+	"host": "trager.lt",
 	"port": "6001",
 	"protocol": "http",
 	"socketio": {},

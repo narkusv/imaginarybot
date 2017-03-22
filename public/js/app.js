@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 96);
+/******/ 	return __webpack_require__(__webpack_require__.s = 95);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -407,15 +407,15 @@ module.exports = {
  * Module dependencies.
  */
 
-var keys = __webpack_require__(68);
+var keys = __webpack_require__(69);
 var hasBinary = __webpack_require__(23);
-var sliceBuffer = __webpack_require__(35);
-var after = __webpack_require__(34);
-var utf8 = __webpack_require__(88);
+var sliceBuffer = __webpack_require__(36);
+var after = __webpack_require__(35);
+var utf8 = __webpack_require__(87);
 
 var base64encoder;
 if (global && global.ArrayBuffer) {
-  base64encoder = __webpack_require__(57);
+  base64encoder = __webpack_require__(58);
 }
 
 /**
@@ -473,7 +473,7 @@ var err = { type: 'error', data: 'parser error' };
  * Create a blob api even for blob builder when vendor prefixes exist
  */
 
-var Blob = __webpack_require__(58);
+var Blob = __webpack_require__(59);
 
 /**
  * Encodes a packet.
@@ -1224,7 +1224,7 @@ module.exports = function(a, b){
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(67);
+exports = module.exports = __webpack_require__(68);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -11840,7 +11840,7 @@ return jQuery;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(51);
+var normalizeHeaderName = __webpack_require__(52);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -12363,9 +12363,9 @@ exports.decode = function(qs){
 
 var debug = __webpack_require__(79)('socket.io-parser');
 var json = __webpack_require__(71);
-var Emitter = __webpack_require__(60);
+var Emitter = __webpack_require__(61);
 var binary = __webpack_require__(78);
-var isBuf = __webpack_require__(31);
+var isBuf = __webpack_require__(32);
 
 /**
  * Protocol version.
@@ -12798,12 +12798,12 @@ module.exports = function(module) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(43);
-var buildURL = __webpack_require__(46);
-var parseHeaders = __webpack_require__(52);
-var isURLSameOrigin = __webpack_require__(50);
+var settle = __webpack_require__(44);
+var buildURL = __webpack_require__(47);
+var parseHeaders = __webpack_require__(53);
+var isURLSameOrigin = __webpack_require__(51);
 var createError = __webpack_require__(18);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(45);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(46);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -12899,7 +12899,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(48);
+      var cookies = __webpack_require__(49);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13020,7 +13020,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(42);
+var enhanceError = __webpack_require__(43);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -13093,9 +13093,9 @@ module.exports = function(obj, fn){
  */
 
 var XMLHttpRequest = __webpack_require__(10);
-var XHR = __webpack_require__(65);
-var JSONP = __webpack_require__(64);
-var websocket = __webpack_require__(66);
+var XHR = __webpack_require__(66);
+var JSONP = __webpack_require__(65);
+var websocket = __webpack_require__(67);
 
 /**
  * Export transports.
@@ -13156,7 +13156,7 @@ var Transport = __webpack_require__(9);
 var parseqs = __webpack_require__(12);
 var parser = __webpack_require__(2);
 var inherit = __webpack_require__(4);
-var yeast = __webpack_require__(32);
+var yeast = __webpack_require__(33);
 var debug = __webpack_require__(5)('engine.io-client:polling');
 
 /**
@@ -13404,7 +13404,7 @@ Polling.prototype.uri = function () {
  * Module requirements.
  */
 
-var isArray = __webpack_require__(69);
+var isArray = __webpack_require__(25);
 
 /**
  * Module exports.
@@ -13478,6 +13478,15 @@ module.exports = function(arr, obj){
 
 /***/ }),
 /* 25 */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports) {
 
 /**
@@ -13632,7 +13641,7 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /**
@@ -13677,7 +13686,7 @@ module.exports = function parseuri(str) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -13685,15 +13694,15 @@ module.exports = function parseuri(str) {
  * Module dependencies.
  */
 
-var eio = __webpack_require__(61);
-var Socket = __webpack_require__(29);
-var Emitter = __webpack_require__(30);
+var eio = __webpack_require__(62);
+var Socket = __webpack_require__(30);
+var Emitter = __webpack_require__(31);
 var parser = __webpack_require__(13);
-var on = __webpack_require__(28);
+var on = __webpack_require__(29);
 var bind = __webpack_require__(20);
 var debug = __webpack_require__(6)('socket.io-client:manager');
 var indexOf = __webpack_require__(24);
-var Backoff = __webpack_require__(56);
+var Backoff = __webpack_require__(57);
 
 /**
  * IE6+ hasOwnProperty
@@ -14243,7 +14252,7 @@ Manager.prototype.onreconnect = function () {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 
@@ -14273,7 +14282,7 @@ function on (obj, ev, fn) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -14282,9 +14291,9 @@ function on (obj, ev, fn) {
  */
 
 var parser = __webpack_require__(13);
-var Emitter = __webpack_require__(30);
-var toArray = __webpack_require__(83);
-var on = __webpack_require__(28);
+var Emitter = __webpack_require__(31);
+var toArray = __webpack_require__(82);
+var on = __webpack_require__(29);
 var bind = __webpack_require__(20);
 var debug = __webpack_require__(6)('socket.io-client:socket');
 var hasBin = __webpack_require__(23);
@@ -14698,7 +14707,7 @@ Socket.prototype.compress = function (compress) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -14867,7 +14876,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -14887,7 +14896,7 @@ function isBuf(obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14962,7 +14971,7 @@ module.exports = yeast;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = function normalizeComponent (
@@ -15015,7 +15024,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = after
@@ -15049,7 +15058,7 @@ function noop() {}
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /**
@@ -15084,13 +15093,13 @@ module.exports = function(arraybuffer, start, end) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(37);
+module.exports = __webpack_require__(38);
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15098,7 +15107,7 @@ module.exports = __webpack_require__(37);
 
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(19);
-var Axios = __webpack_require__(39);
+var Axios = __webpack_require__(40);
 var defaults = __webpack_require__(8);
 
 /**
@@ -15133,14 +15142,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(16);
-axios.CancelToken = __webpack_require__(38);
+axios.CancelToken = __webpack_require__(39);
 axios.isCancel = __webpack_require__(17);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(53);
+axios.spread = __webpack_require__(54);
 
 module.exports = axios;
 
@@ -15149,7 +15158,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15213,7 +15222,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15221,10 +15230,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(8);
 var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(40);
-var dispatchRequest = __webpack_require__(41);
-var isAbsoluteURL = __webpack_require__(49);
-var combineURLs = __webpack_require__(47);
+var InterceptorManager = __webpack_require__(41);
+var dispatchRequest = __webpack_require__(42);
+var isAbsoluteURL = __webpack_require__(50);
+var combineURLs = __webpack_require__(48);
 
 /**
  * Create a new instance of Axios
@@ -15305,7 +15314,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15364,14 +15373,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(1);
-var transformData = __webpack_require__(44);
+var transformData = __webpack_require__(45);
 var isCancel = __webpack_require__(17);
 var defaults = __webpack_require__(8);
 
@@ -15450,7 +15459,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15476,7 +15485,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15508,7 +15517,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15535,7 +15544,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15578,7 +15587,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15653,7 +15662,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15672,7 +15681,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15732,7 +15741,7 @@ module.exports = (
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15753,7 +15762,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15828,7 +15837,7 @@ module.exports = (
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15847,7 +15856,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15891,7 +15900,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15925,7 +15934,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16041,7 +16050,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16065,7 +16074,7 @@ window.$ = window.jQuery = __webpack_require__(7);
 
 window.io = __webpack_require__(75);
 
-__webpack_require__(59);
+__webpack_require__(60);
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -16073,7 +16082,7 @@ __webpack_require__(59);
  * and simple, leaving you to focus on building your next great project.
  */
 
-window.Vue = __webpack_require__(86);
+window.Vue = __webpack_require__(85);
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -16081,7 +16090,7 @@ window.Vue = __webpack_require__(86);
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(36);
+window.axios = __webpack_require__(37);
 
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': window.Laravel.csrfToken,
@@ -16091,7 +16100,7 @@ window.axios.defaults.headers.common = {
 window.Echo = new _laravelEcho2.default({
 
   broadcaster: 'socket.io',
-  host: 'http://homestead.app:6001'
+  host: 'http://trager.lt:6001'
 });
 
 /**
@@ -16108,7 +16117,7 @@ window.Echo = new _laravelEcho2.default({
 // });
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports) {
 
 
@@ -16199,7 +16208,7 @@ Backoff.prototype.setJitter = function(jitter){
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports) {
 
 /*
@@ -16272,7 +16281,7 @@ Backoff.prototype.setJitter = function(jitter){
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -16375,7 +16384,7 @@ module.exports = (function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -18759,7 +18768,7 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 
@@ -18929,19 +18938,19 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-module.exports = __webpack_require__(62);
-
-
-/***/ }),
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 module.exports = __webpack_require__(63);
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+module.exports = __webpack_require__(64);
 
 /**
  * Exports parser
@@ -18953,7 +18962,7 @@ module.exports.parser = __webpack_require__(2);
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -18965,7 +18974,7 @@ var Emitter = __webpack_require__(11);
 var debug = __webpack_require__(5)('engine.io-client:socket');
 var index = __webpack_require__(24);
 var parser = __webpack_require__(2);
-var parseuri = __webpack_require__(26);
+var parseuri = __webpack_require__(27);
 var parsejson = __webpack_require__(74);
 var parseqs = __webpack_require__(12);
 
@@ -19698,7 +19707,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -19936,7 +19945,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -20367,7 +20376,7 @@ function unloadHandler () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -20378,13 +20387,13 @@ var Transport = __webpack_require__(9);
 var parser = __webpack_require__(2);
 var parseqs = __webpack_require__(12);
 var inherit = __webpack_require__(4);
-var yeast = __webpack_require__(32);
+var yeast = __webpack_require__(33);
 var debug = __webpack_require__(5)('engine.io-client:websocket');
 var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 var NodeWebSocket;
 if (typeof window === 'undefined') {
   try {
-    NodeWebSocket = __webpack_require__(89);
+    NodeWebSocket = __webpack_require__(88);
   } catch (e) { }
 }
 
@@ -20659,7 +20668,7 @@ WS.prototype.check = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -20675,7 +20684,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(25);
+exports.humanize = __webpack_require__(26);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -20865,7 +20874,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports) {
 
 
@@ -20886,15 +20895,6 @@ module.exports = Object.keys || function keys (obj){
     }
   }
   return arr;
-};
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports) {
-
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
 
@@ -20929,7 +20929,7 @@ try {
 ;(function () {
   // Detect the `define` function exposed by asynchronous module loaders. The
   // strict `define` check is necessary for compatibility with `r.js`.
-  var isLoader = "function" === "function" && __webpack_require__(87);
+  var isLoader = "function" === "function" && __webpack_require__(86);
 
   // A set of types used to distinguish objects from primitives.
   var objectTypes = {
@@ -39746,7 +39746,7 @@ module.exports = function parsejson(data) {
 
 var url = __webpack_require__(76);
 var parser = __webpack_require__(13);
-var Manager = __webpack_require__(27);
+var Manager = __webpack_require__(28);
 var debug = __webpack_require__(6)('socket.io-client');
 
 /**
@@ -39846,8 +39846,8 @@ exports.connect = lookup;
  * @api public
  */
 
-exports.Manager = __webpack_require__(27);
-exports.Socket = __webpack_require__(29);
+exports.Manager = __webpack_require__(28);
+exports.Socket = __webpack_require__(30);
 
 
 /***/ }),
@@ -39859,7 +39859,7 @@ exports.Socket = __webpack_require__(29);
  * Module dependencies.
  */
 
-var parseuri = __webpack_require__(26);
+var parseuri = __webpack_require__(27);
 var debug = __webpack_require__(6)('socket.io-client:url');
 
 /**
@@ -39949,7 +39949,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(25);
+exports.humanize = __webpack_require__(26);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -40148,8 +40148,8 @@ function coerce(val) {
  * Module requirements
  */
 
-var isArray = __webpack_require__(81);
-var isBuf = __webpack_require__(31);
+var isArray = __webpack_require__(25);
+var isBuf = __webpack_require__(32);
 
 /**
  * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -40477,7 +40477,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(82);
+exports.humanize = __webpack_require__(81);
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -40667,15 +40667,6 @@ function coerce(val) {
 /* 81 */
 /***/ (function(module, exports) {
 
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
-};
-
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports) {
-
 /**
  * Helpers.
  */
@@ -40804,7 +40795,7 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = toArray
@@ -40823,20 +40814,20 @@ function toArray(list, index) {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(33)(
+var Component = __webpack_require__(34)(
   /* script */
-  __webpack_require__(54),
+  __webpack_require__(55),
   /* template */
-  __webpack_require__(85),
+  __webpack_require__(84),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\Code\\imaginarybot\\resources\\assets\\js\\components\\Panel.vue"
+Component.options.__file = "/var/www/imaginarybot/resources/assets/js/components/Panel.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Panel.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -40857,7 +40848,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -40942,7 +40933,7 @@ if (false) {
 }
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50195,7 +50186,7 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(0)))
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -50204,7 +50195,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/wtf8 v1.0.0 by @mathias */
@@ -50444,13 +50435,13 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)(module), __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50462,15 +50453,15 @@ module.exports = __webpack_amd_options__;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(55);
+__webpack_require__(56);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('userlist', __webpack_require__(94));
-Vue.component('item', __webpack_require__(84));
+Vue.component('userlist', __webpack_require__(93));
+Vue.component('item', __webpack_require__(83));
 
 //Converts JSON array from database (no children, just parent ID) to a tree.
 function unflatten(arr) {
@@ -50688,14 +50679,14 @@ axios.get('/comments').then(function (response) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 91 */,
-/* 92 */
+/* 90 */,
+/* 91 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50728,20 +50719,20 @@ exports.default = {
 };
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Component = __webpack_require__(33)(
+var Component = __webpack_require__(34)(
   /* script */
-  __webpack_require__(93),
+  __webpack_require__(92),
   /* template */
-  __webpack_require__(95),
+  __webpack_require__(94),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\Code\\imaginarybot\\resources\\assets\\js\\components\\Userlist.vue"
+Component.options.__file = "/var/www/imaginarybot/resources/assets/js/components/Userlist.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Userlist.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -50762,7 +50753,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -50787,11 +50778,11 @@ if (false) {
 }
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(90);
-module.exports = __webpack_require__(92);
+__webpack_require__(89);
+module.exports = __webpack_require__(91);
 
 
 /***/ })

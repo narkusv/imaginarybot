@@ -40,7 +40,7 @@ import Echo from "laravel-echo"
 window.Echo = new Echo({
 
     broadcaster: 'socket.io',
-    host: 'http://homestead.app:6001'
+    host: 'http://trager.lt:6001'
 });
 
 

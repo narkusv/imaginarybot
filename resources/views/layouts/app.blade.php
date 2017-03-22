@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|EB+Garamond|Goudy+Bookletter+1911" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,12 +15,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         div{
-            padding-left: 0 !important ;
+            padding-left:0 !important ;
+			font-family: 'EB Garamond', serif;
+			font-size:22px;
+			line-height:26px;
+			color:#000000;
         }
         body{
 
             background-color: #ffffff;
-            font-family: "Times New Roman", Georgia, Serif;
+
+            
         }
     </style>
     <!-- Scripts -->
@@ -93,5 +99,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+
 </body>
 </html>

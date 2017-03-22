@@ -1,7 +1,7 @@
 var echo = require('laravel-echo-server');
 	
 var options = {
-  host: 'homestead.app',
+  host: 'trager.lt',
   port: '6001'
 };
 

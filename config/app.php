@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://homestead.app'),
+    'url' => env('APP_URL', 'http://trager.lt'),
 
     /*
     |--------------------------------------------------------------------------
