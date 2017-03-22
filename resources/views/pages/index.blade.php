@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div style="padding-left: -200px; padding-bottom:30px;
- word-break: none; word-wrap:none;" class="container col-md-10">
+<div style="padding-left: -200px; padding-bottom:30px; word-break: none; word-wrap:break-word;" class="container col-md-10 col-xs-12">
   
    	<div style="margin-top: 20px; padding-left: 0px"  class="col-md-12 col-xs-12" id="demo">
       <ul style="list-style: none; font-size: 20pt;">

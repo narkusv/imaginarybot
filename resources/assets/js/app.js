@@ -158,18 +158,21 @@ var commentHandler = new window.Vue({
 		var comment = e.target.value; 
 		var type = 0;//0 = type.text
 		e.target.value = "";
-		//Checking if input is valid url. if input is valid url checking if url is image. only then data is passed to server. 
-		if(isURL(comment.trim())){
-			console.log("is url");
-			if(isURLIMG(comment, function(isImg){
-				if(isImg){
-					console.log("is image");
-					type  = 1;
-				}
+
+		if(comment != ''){
+			//Checking if input is valid url. if input is valid url checking if url is image. only then data is passed to server. 
+			if(isURL(comment.trim())){
+				console.log("is url");
+				if(isURLIMG(comment, function(isImg){
+					if(isImg){
+						console.log("is image");
+						type  = 1;
+					}
+					passDataToServer(comment, parent, type, model);
+				}));
+			}else{
 				passDataToServer(comment, parent, type, model);
-			}));
-		}else{
-			passDataToServer(comment, parent, type, model);
+			}
 		}
 	}
 }

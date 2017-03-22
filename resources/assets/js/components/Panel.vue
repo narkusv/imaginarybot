@@ -9,8 +9,10 @@
         
        
       </span>
-      <img style="max-width:600px; height: auto" class="img-responsive" v-else :src="model.content" alt="bot is confused about this image"></img>
-     
+      <div v-else style="max-width: 600px">
+      <img   class="img-responsive"  :src="model.content" alt="bot is confused about this image"></img>
+      </div>
+
     </div>
     <div class="col-md-1 col-xs-1">
       <button  v-show="admin" @click="deleteElement" type="button" class="close" aria-label="Close">
@@ -98,8 +100,10 @@
             this.reply = !this.reply;
           },
           processComment: function(e) {
-            this.open = true;
-            this.$root.$options.methods.saveComment(e, this.model.id, this.model);
+            if(e.target.value != ''){
+              this.open = true;
+              this.$root.$options.methods.saveComment(e, this.model.id, this.model);
+            }
           },
           addChild: function () {
             this.model.children.push({

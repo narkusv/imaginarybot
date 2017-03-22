@@ -37,10 +37,13 @@ window.axios.defaults.headers.common = {
 
 import Echo from "laravel-echo"
 
+var host = window.location.hostname;
+console.log(host);
+
 window.Echo = new Echo({
 
     broadcaster: 'socket.io',
-    host: 'http://trager.lt:6001'
+    host: host+':6001'
 });
 
 
