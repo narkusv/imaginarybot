@@ -1,5 +1,8 @@
 {
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
-  "/js/commentHandler.js": "/js/commentHandler.js"
+  "/js/commentHandler.js": "/js/commentHandler.js",
+  "/js/ModelLoader.js": "/js/ModelLoader.js",
+  "/js/OrbitControls.js": "/js/OrbitControls.js",
+  "/js/OBJLoader.js": "/js/OBJLoader.js"
 }

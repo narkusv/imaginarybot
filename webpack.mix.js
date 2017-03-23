@@ -11,7 +11,7 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js').js('resources/assets/js/commentHandler.js', 'public/js')
+mix.js('resources/assets/js/app.js', 'public/js').js('resources/assets/js/commentHandler.js', 'public/js').js('resources/assets/js/ModelLoader.js', 'public/js').js('resources/assets/js/OrbitControls.js', 'public/js').js('resources/assets/js/OBJLoader.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css') .options({
     
    });

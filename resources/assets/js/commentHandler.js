@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-
 function unflatten(arr) {
   var tree = [],
       mappedArr = {},
