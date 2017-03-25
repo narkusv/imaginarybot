@@ -46,26 +46,46 @@ renderer.setClearColor( 0x000000, 0 ); // the default
         };
 
 
-      var keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
-      keyLight.position.set(-400, 0, 400);
+    var ambient = new THREE.AmbientLight( 0xffffff );
+        scene.add( ambient );
+        ambient.intensity = 1;
 
 
+   
+        var loader = new THREE.ImageLoader( manager );
+        loader.load( 'galva.jpg', function ( image ) {
 
-      var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-      backLight.position.set(400, 0, -400).normalize();
+          texture.image = image;
+          texture.needsUpdate = true;
 
-      scene.add(keyLight);
-      scene.add(backLight);
+        } );
 
-    var loader = new THREE.OBJLoader();
-    var loader = new THREE.OBJLoader( manager );
-        loader.load( 'l.obj', function ( object ) {
-          
+        // model
+        
+
+        var loader = new THREE.OBJLoader( manager );
+        loader.load( 'baltas.obj', function ( object ) {
+
+          object.traverse( function ( child ) {
+
+            if ( child instanceof THREE.Mesh ) {
+
+              child.material.map = texture;
+
+            }
+
+          } );
+
+          object.position.y = - 95;
           scene.add( object );
-          object.position.y = -95;
+
         }, onProgress, onError );
+
+
        // Add OrbitControls so that we can pan around with the mouse.
     controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+    controls.enablePan = false;
 
   }
 
