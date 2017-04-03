@@ -78,6 +78,7 @@ renderer.setClearColor( 0x000000, 0 ); // the default
         var loader = new THREE.OBJLoader( manager );
         loader.load( 'baltas.obj', function ( object ) {
           head = object;
+          head.scale.set(1.1, 1.1, 1.1);
           head.traverse( function ( child ) {
 
             if ( child instanceof THREE.Mesh ) {
