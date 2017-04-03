@@ -21,7 +21,7 @@ window.requestAnimFrame = (function(){
     container = $("#ModelContainer");
     scene = new THREE.Scene();
     var WIDTH = container.width(),
-        HEIGHT = WIDTH;
+        HEIGHT = WIDTH*1.5;
 
       renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
       renderer.setSize(WIDTH, HEIGHT);
@@ -33,7 +33,7 @@ window.requestAnimFrame = (function(){
 
       window.addEventListener('resize', function() {
       var WIDTH = container.width(),
-          HEIGHT = WIDTH;
+          HEIGHT = WIDTH*1.5;
       renderer.setSize(WIDTH, HEIGHT);
       camera.aspect = WIDTH / HEIGHT;
       camera.updateProjectionMatrix();
