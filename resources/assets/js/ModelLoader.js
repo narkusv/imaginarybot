@@ -3,21 +3,33 @@ global.jQuery = require('jquery');
 var $ = global.jQuery;
 window.$ = $;
   
- var scene, camera, renderer, controls;
- var container;
+var scene, camera, renderer, controls;
+var container, head;
+var ROTATION_SPEED = 0.01;
+
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+
   function init(){
     container = $("#ModelContainer");
     scene = new THREE.Scene();
     var WIDTH = container.width(),
         HEIGHT = WIDTH;
 
-          renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
-    renderer.setSize(WIDTH, HEIGHT);
-    container.append(renderer.domElement);
+      renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+      renderer.setSize(WIDTH, HEIGHT);
+      container.append(renderer.domElement);
 
-     camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 1, 2000);
-    camera.position.set(0,0,250);
-    scene.add(camera);
+      camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 1, 2000);
+      camera.position.set(0,0,250);
+      scene.add(camera);
 
       window.addEventListener('resize', function() {
       var WIDTH = container.width(),
@@ -65,8 +77,8 @@ renderer.setClearColor( 0x000000, 0 ); // the default
 
         var loader = new THREE.OBJLoader( manager );
         loader.load( 'baltas.obj', function ( object ) {
-
-          object.traverse( function ( child ) {
+          head = object;
+          head.traverse( function ( child ) {
 
             if ( child instanceof THREE.Mesh ) {
 
@@ -76,8 +88,9 @@ renderer.setClearColor( 0x000000, 0 ); // the default
 
           } );
 
-          object.position.y = - 95;
-          scene.add( object );
+          head.position.y = - 95;
+          scene.add( head );
+
 
         }, onProgress, onError );
 
@@ -89,14 +102,25 @@ renderer.setClearColor( 0x000000, 0 ); // the default
 
   }
 
-  function animate(){
 
+  function rotateCube() {
+      head.rotation.y -= ROTATION_SPEED;
+  }
+
+  function animate(){
      // Read more about requestAnimationFrame at http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-    requestAnimationFrame(animate);
- 
+    requestAnimFrame(animate);
+
     // Render the scene.
     renderer.render(scene, camera);
     controls.update();
+    rotateCube();
+
+
+  }
+
+  function render(){
+    console.log("render is called");
   }
 $( document ).ready(function() {
 
